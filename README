@@ -1,38 +1,38 @@
 # Assignment 2: Data Structures and Algorithms (IITU)
 
 ## Overview
-This repository contains the implementation of fundamental data structures in Java as part of the Data Structures and Algorithms course assignment. The project implements a custom `DynamicArray`, a singly/doubly linked `LinkedList`, and a `MinHeap`, along with comprehensive testing and performance benchmarking.
+This repository contains the implementation of fundamental data structures in Java as part of the Data Structures and Algorithms course assignment. The project implements a custom `DynamicArray`, a `LinkedList`, and a `MinHeap`, along with comprehensive testing and performance benchmarking.
 
 ## Implemented Data Structures
 
 1. **DynamicArray**:
    - A resizable array implementation that automatically expands its capacity (doubling it) when the underlying array is full.
    - **Time Complexity**:
-     - Access (`get`): $O(1)$
-     - Insertion (`add` at end): $O(1)$ amortized
-     - Deletion: $O(N)$
+     - Access (get): O(1)
+     - Insertion (add at end): O(1) amortized
+     - Deletion: O(N)
 
 2. **LinkedList**:
-   - A linear collection of data elements whose order is not given by their physical placement in memory.
+   - A linear collection of data elements.
    - **Time Complexity**:
-     - Access (`get`): $O(N)$
-     - Insertion: $O(N)$
-     - Deletion: $O(N)$
+     - Access (get): O(N)
+     - Insertion: O(N)
+     - Deletion: O(N)
 
 3. **MinHeap**:
    - A complete binary tree where the value of each node is less than or equal to the values of its children, maintaining the minimum element at the root.
    - **Time Complexity**:
-     - Get Minimum (`peekMin`): $O(1)$
-     - Insertion (`insert`): $O(\log N)$
-     - Extraction (`extractMin`): $O(\log N)$
+     - Get Minimum (peekMin): O(1)
+     - Insertion (insert): O(log N)
+     - Extraction (extractMin): O(log N)
 
 
 
 ## Performance Benchmark Results
 
-The performance was measured for $N = 50,000$ operations (elements added/inserted) using `System.nanoTime()`:
+The performance was measured for N = 50,000 operations using System.nanoTime():
 
-| Data Structure | Operation | Number of Elements ($N$) | Time (ms) |
+| Data Structure | Operation | Number of Elements (N) | Time (ms) |
 | :--- | :--- | :--- | :--- |
 | **DynamicArray** | Sequential Add (End) | 50,000 | ~3.85 ms |
 | **MinHeap** | Element Insertion | 50,000 | ~4.55 ms |
@@ -40,12 +40,11 @@ The performance was measured for $N = 50,000$ operations (elements added/inserte
 
 ### Analysis:
 - **DynamicArray** shows extremely fast insertion times because appending to an array backed by contiguous memory is efficient and involves minimal overhead.
-- **MinHeap** maintains logarithmic insertion time via `siftUp`, performing very efficiently even with 50,000 elements.
-- **LinkedList** takes significantly more time for sequential appends without a tail pointer because each insertion traverses the entire list from the head, resulting in $O(N^2)$ total time for $N$ insertions.
+- **MinHeap** maintains logarithmic insertion time via siftUp, performing very efficiently even with 50,000 elements.
+- **LinkedList** takes significantly more time for sequential appends without a tail pointer because each insertion traverses the entire list from the head, resulting in O(N^2) total time for N insertions.
 
----
 
 ## How to Run
 1. Open the project in **IntelliJ IDEA**.
-2. Run **`Tests.java`** to verify the functional correctness of all data structures.
-3. Run **`Benchmark.java`** to replicate the performance measurements.
+2. Run **Tests.java** to verify the functional correctness of all data structures.
+3. Run **Benchmark.java** to replicate the performance measurements.
